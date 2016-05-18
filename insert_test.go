@@ -18,3 +18,15 @@ func TestInsert(t *testing.T) {
 		t.Fatal(err)
 	}
 }
+
+func TestInsertNow(t *testing.T) {
+	kv, err := tskv.New()
+	if err != nil {
+		t.Fatal(err)
+	}
+
+	err = kv.InsertNow(1)
+	if err != nil {
+		t.Fatal(err)
+	}
+}
