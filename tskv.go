@@ -9,6 +9,7 @@ type Tskv struct {
 	elements  map[string]interface{}
 }
 
-// AddNow Adds an element to our tskv, for right now
-func (t *Tskv) Add(i interface{}) {
+// New Returns a brand new Tskv object
+func New() (*Tskv, error) {
+	return &Tskv{}, nil
 }
