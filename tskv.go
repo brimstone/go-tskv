@@ -11,5 +11,8 @@ type Tskv struct {
 
 // New Returns a brand new Tskv object
 func New() (*Tskv, error) {
-	return &Tskv{}, nil
+	t := &Tskv{
+		elements: make(map[string]interface{}),
+	}
+	return t, nil
 }
