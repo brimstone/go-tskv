@@ -7,7 +7,7 @@ func (t *Tskv) Insert(when time.Time, value interface{}) error {
 	// add item to list
 	// if duration is shorter than list
 	// remove last item
-	t.elements[when.Format(time.RFC3339)] = value
+	t.elements[when] = Element{value: value}
 	return nil
 }
 
@@ -16,6 +16,6 @@ func (t *Tskv) InsertNow(value interface{}) error {
 	// add item to list
 	// if duration is shorter than list
 	// remove last item
-	t.elements[time.Now().Format(time.RFC3339)] = value
+	t.elements[time.Now()] = Element{value: value}
 	return nil
 }

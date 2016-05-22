@@ -6,13 +6,13 @@ import "time"
 type Tskv struct {
 	Duration  time.Time
 	Frequency time.Duration
-	elements  map[string]interface{}
+	elements  map[time.Time]Element
 }
 
 // New Returns a brand new Tskv object
 func New() (*Tskv, error) {
 	t := &Tskv{
-		elements: make(map[string]interface{}),
+		elements: make(map[time.Time]Element),
 	}
 	return t, nil
 }
