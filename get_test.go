@@ -8,7 +8,10 @@ import (
 )
 
 func TestGetSince(t *testing.T) {
-	kv, err := tskv.New()
+	kv, err := tskv.New(&tskv.Config{
+		Duration:  time.Second * 5,
+		Frequency: time.Second,
+	})
 	if err != nil {
 		t.Fatal(err)
 	}
