@@ -17,7 +17,10 @@ import (
 )
 
 func main() {
-	weight, err := tskv.New()
+	weight, err := tskv.New(&tskv.Config{
+		Duration:  time.Hour,
+		Frequency: time.Minute,
+	})
 	if err != nil {
 		panic(err)
 	}
