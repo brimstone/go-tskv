@@ -1,6 +1,7 @@
 package tskv_test
 
 import (
+	"fmt"
 	"testing"
 	"time"
 
@@ -37,4 +38,25 @@ func TestGetSince(t *testing.T) {
 	if value != 1 {
 		t.Fatal("Expected oldest to be 1, got ", value)
 	}
+}
+
+func TestGetInt(t *testing.T) {
+	kv, err := tskv.New(&tskv.Config{
+		Duration:  time.Second * 5,
+		Frequency: time.Second,
+	})
+	if err != nil {
+		t.Fatal(err)
+	}
+	err = kv.InsertNow(1)
+	if err != nil {
+		t.Fatal(err)
+	}
+	ints := kv.GetInt()
+	fmt.Println(ints)
+	/*
+		if ints != []int{1, 0, 0, 0, 0} {
+			t.Fatal("Expected 1 0 0 0 0, got,", ints)
+		}
+	*/
 }

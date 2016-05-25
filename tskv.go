@@ -32,6 +32,9 @@ func New(config *Config) (*Tskv, error) {
 		return nil, fmt.Errorf("Duration must be larger than Frequency")
 	}
 
+	now := time.Now().Truncate(frequency)
+	duration = now.Add(duration).Truncate(frequency).Sub(now)
+
 	t := &Tskv{
 		duration:  duration,
 		frequency: frequency,
