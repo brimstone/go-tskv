@@ -9,6 +9,8 @@ import (
 type Tskv struct {
 	duration  time.Duration
 	frequency time.Duration
+	youngest  time.Time
+	oldest    time.Time
 	elements  map[time.Time]Element
 }
 
