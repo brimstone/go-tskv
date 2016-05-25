@@ -1,7 +1,6 @@
 package tskv_test
 
 import (
-	"fmt"
 	"testing"
 	"time"
 
@@ -23,10 +22,9 @@ func TestCleanup(t *testing.T) {
 	}
 
 	elements := kv.GetInt()
-	fmt.Println(elements)
-	/*
-		if value != 1 {
-			t.Fatal("Expected oldest to be 1, got ", value)
+	for _, v := range elements {
+		if v != 0 {
+			t.Fatal("Expected value to be 0, got ", v)
 		}
-	*/
+	}
 }

@@ -1,7 +1,6 @@
 package tskv_test
 
 import (
-	"fmt"
 	"testing"
 	"time"
 
@@ -53,10 +52,12 @@ func TestGetInt(t *testing.T) {
 		t.Fatal(err)
 	}
 	ints := kv.GetInt()
-	fmt.Println(ints)
-	/*
-		if ints != []int{1, 0, 0, 0, 0} {
-			t.Fatal("Expected 1 0 0 0 0, got,", ints)
+	if ints[0] != 1 {
+		t.Fatal("Expected 1, got", ints[0])
+	}
+	for _, v := range ints[1:] {
+		if v != 0 {
+			t.Fatal("Expected 0, got", v)
 		}
-	*/
+	}
 }
