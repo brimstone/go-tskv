@@ -4,6 +4,7 @@ import "time"
 
 // Oldest returns the oldest element in our tskv
 func (t *Tskv) Oldest() *Element {
+	t.cleanup()
 	oldestAge := time.Now()
 	var oldestElement Element
 
