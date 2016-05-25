@@ -21,9 +21,8 @@ func (t *Tskv) GetSince(when time.Time) *Tskv {
 func (t *Tskv) GetRaw() []Element {
 	t.cleanup()
 	var all []Element
-	current := time.Now().Truncate(t.frequency)
-	oldest := current.Add(-t.duration)
-	for current.After(oldest) {
+	current := t.youngest
+	for current.After(t.oldest) {
 		all = append(all, t.elements[current])
 		current = current.Add(-t.frequency)
 	}
