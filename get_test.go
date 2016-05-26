@@ -16,12 +16,12 @@ func TestGetSince(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	err = kv.InsertNow(1)
+	err = kv.SetNow(1)
 	if err != nil {
 		t.Fatal(err)
 	}
 
-	err = kv.Insert(time.Now().Add(-time.Hour), 2)
+	err = kv.Set(time.Now().Add(-time.Hour), 2)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -47,7 +47,7 @@ func TestGetInt(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	err = kv.InsertNow(1)
+	err = kv.SetNow(1)
 	if err != nil {
 		t.Fatal(err)
 	}

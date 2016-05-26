@@ -11,7 +11,7 @@ func (t *Tskv) GetSince(when time.Time) *Tskv {
 	})
 	for key, value := range t.elements {
 		if key.After(when) {
-			toreturn.Insert(key, value.Value())
+			toreturn.Set(key, value.Value())
 		}
 	}
 	return toreturn

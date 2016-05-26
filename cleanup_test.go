@@ -16,7 +16,7 @@ func TestCleanup(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	err = kv.Insert(time.Now().Add(-time.Hour), 1)
+	err = kv.Set(time.Now().Add(-time.Hour), 1)
 	if err != nil {
 		t.Fatal(err)
 	}

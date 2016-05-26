@@ -7,7 +7,7 @@ import (
 	"github.com/brimstone/go-tskv"
 )
 
-func TestInsert(t *testing.T) {
+func TestSet(t *testing.T) {
 	kv, err := tskv.New(&tskv.Config{
 		Duration:  time.Second * 5,
 		Frequency: time.Second,
@@ -16,13 +16,13 @@ func TestInsert(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	err = kv.Insert(time.Now(), 1)
+	err = kv.Set(time.Now(), 1)
 	if err != nil {
 		t.Fatal(err)
 	}
 }
 
-func TestInsertNow(t *testing.T) {
+func TestSetNow(t *testing.T) {
 	kv, err := tskv.New(&tskv.Config{
 		Duration:  time.Second * 5,
 		Frequency: time.Second,
@@ -31,7 +31,7 @@ func TestInsertNow(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	err = kv.InsertNow(1)
+	err = kv.SetNow(1)
 	if err != nil {
 		t.Fatal(err)
 	}

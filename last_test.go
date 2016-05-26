@@ -16,7 +16,7 @@ func TestLast(t *testing.T) {
 		t.Fatal(err)
 	}
 
-	err = kv.InsertNow(1)
+	err = kv.SetNow(1)
 	if err != nil {
 		t.Fatal(err)
 	}
