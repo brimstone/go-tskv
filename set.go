@@ -5,6 +5,7 @@ import "time"
 // Set Sets an element to our tskv
 func (t *Tskv) Set(when time.Time, value interface{}) error {
 	t.cleanup()
+	t.notify(when, value)
 	t.elements[when.Truncate(t.frequency)] = Element{value: value}
 	return nil
 }
