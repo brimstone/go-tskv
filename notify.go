@@ -1,9 +1,6 @@
 package tskv
 
-import (
-	"fmt"
-	"time"
-)
+import "time"
 
 func (t *Tskv) notify(when time.Time, value interface{}) {
 	if len(t.subscribers) == 0 {
@@ -15,7 +12,6 @@ func (t *Tskv) notify(when time.Time, value interface{}) {
 	})
 	kv.Set(when, value)
 	for _, c := range t.subscribers {
-		fmt.Println("Notify")
 		go func(channel chan *Tskv) {
 			channel <- kv
 		}(c)

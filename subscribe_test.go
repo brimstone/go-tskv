@@ -1,7 +1,6 @@
 package tskv_test
 
 import (
-	"fmt"
 	"testing"
 	"time"
 
@@ -26,5 +25,8 @@ func TestSubscribe(t *testing.T) {
 
 	element := <-channel
 
-	fmt.Println(element.Last().Int())
+	value := element.Last().Int()
+	if value != 42 {
+		t.Fatal("Expected 42, got", value)
+	}
 }
