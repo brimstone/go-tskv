@@ -13,9 +13,11 @@ func (t *Tskv) Inc(when time.Time, value interface{}) error {
 		t.Set(when, value)
 		return nil
 	}
+	newvalue := current.value.(int) + value.(int)
+	t.notify(when, newvalue)
 	// update our element
 	t.elements[when.Truncate(t.frequency)] = Element{
-		value: current.value.(int) + value.(int),
+		value: newvalue,
 	}
 	return nil
 }

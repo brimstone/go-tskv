@@ -7,11 +7,12 @@ import (
 
 // Tskv our main structure
 type Tskv struct {
-	duration  time.Duration
-	frequency time.Duration
-	youngest  time.Time
-	oldest    time.Time
-	elements  map[time.Time]Element
+	duration    time.Duration
+	frequency   time.Duration
+	youngest    time.Time
+	oldest      time.Time
+	elements    map[time.Time]Element
+	subscribers []chan *Tskv
 }
 
 // Config holds our main configuration information
