@@ -16,8 +16,8 @@ func (t *Tskv) notify(when time.Time, value interface{}) {
 	kv.Set(when, value)
 	for _, c := range t.subscribers {
 		fmt.Println("Notify")
-		go func() {
-			c <- kv
-		}()
+		go func(channel chan *Tskv) {
+			channel <- kv
+		}(c)
 	}
 }
