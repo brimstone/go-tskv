@@ -8,7 +8,7 @@ import (
 )
 
 func TestSet(t *testing.T) {
-	kv, err := tskv.New(&tskv.Config{
+	kv, err := tskv.New(tskv.Config{
 		Duration:  time.Second * 5,
 		Frequency: time.Second,
 	})
@@ -23,7 +23,7 @@ func TestSet(t *testing.T) {
 }
 
 func TestSetNow(t *testing.T) {
-	kv, err := tskv.New(&tskv.Config{
+	kv, err := tskv.New(tskv.Config{
 		Duration:  time.Second * 5,
 		Frequency: time.Second,
 	})

@@ -5,7 +5,7 @@ import "time"
 // GetSince Returns all of the elements
 func (t *Tskv) GetSince(when time.Time) *Tskv {
 	t.cleanup()
-	toreturn, _ := New(&Config{
+	toreturn, _ := New(Config{
 		Duration:  time.Second * 5,
 		Frequency: time.Second,
 	})

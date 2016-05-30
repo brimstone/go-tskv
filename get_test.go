@@ -8,7 +8,7 @@ import (
 )
 
 func TestGetSince(t *testing.T) {
-	kv, err := tskv.New(&tskv.Config{
+	kv, err := tskv.New(tskv.Config{
 		Duration:  time.Second * 5,
 		Frequency: time.Second,
 	})
@@ -40,7 +40,7 @@ func TestGetSince(t *testing.T) {
 }
 
 func TestGetInt(t *testing.T) {
-	kv, err := tskv.New(&tskv.Config{
+	kv, err := tskv.New(tskv.Config{
 		Duration:  time.Second * 5,
 		Frequency: time.Second,
 	})

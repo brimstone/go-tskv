@@ -8,7 +8,7 @@ import (
 )
 
 func TestCleanup(t *testing.T) {
-	kv, err := tskv.New(&tskv.Config{
+	kv, err := tskv.New(tskv.Config{
 		Duration:  time.Second * 5,
 		Frequency: time.Second,
 	})
