@@ -22,7 +22,7 @@ type Config struct {
 }
 
 // New Returns a brand new Tskv object
-func New(config *Config) (*Tskv, error) {
+func New(config Config) (*Tskv, error) {
 	duration := config.Duration
 	if duration == 0 {
 		return nil, fmt.Errorf("Duration must be >0")
