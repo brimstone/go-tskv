@@ -17,7 +17,7 @@ func (t *Tskv) GetSince(when time.Time) *Tskv {
 	return toreturn
 }
 
-// GetRaw returns an raw repssentation of the series
+// GetRaw returns an raw representation of the series
 func (t *Tskv) GetRaw() []Element {
 	t.cleanup()
 	var all []Element
@@ -41,4 +41,10 @@ func (t *Tskv) GetInt() []int {
 
 	}
 	return all
+}
+
+// GetMap returns an raw representation of the series
+func (t *Tskv) GetMap() map[time.Time]Element {
+	t.cleanup()
+	return t.elements
 }
