@@ -27,7 +27,22 @@ func TestMarshal(t *testing.T) {
 	if err != nil {
 		t.Fatal(err)
 	}
-	expected := "{\"" + now.Format(time.RFC3339) + "\":1}"
+
+	now = now.Truncate(time.Second).Add(-4 * time.Second)
+	expected := "{\"" + now.Format(time.RFC3339) + "\":null"
+
+	now = now.Add(time.Second)
+	expected += ",\"" + now.Format(time.RFC3339) + "\":null"
+
+	now = now.Add(time.Second)
+	expected += ",\"" + now.Format(time.RFC3339) + "\":null"
+
+	now = now.Add(time.Second)
+	expected += ",\"" + now.Format(time.RFC3339) + "\":null"
+
+	now = now.Add(time.Second)
+	expected += ",\"" + now.Format(time.RFC3339) + "\":1}"
+
 	if string(jsondata) != expected {
 		t.Fatal("Expected", expected, "received", string(jsondata))
 	}

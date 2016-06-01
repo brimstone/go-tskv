@@ -46,5 +46,11 @@ func (t *Tskv) GetInt() []int {
 // GetMap returns an raw representation of the series
 func (t *Tskv) GetMap() map[time.Time]Element {
 	t.cleanup()
-	return t.elements
+	all := make(map[time.Time]Element)
+	current := t.youngest
+	for current.After(t.oldest) {
+		all[current] = t.elements[current]
+		current = current.Add(-t.frequency)
+	}
+	return all
 }
